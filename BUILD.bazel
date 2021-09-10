@@ -1,0 +1,11 @@
+genrule(
+    name = "get_platform",
+    srcs = [],
+    outs = ["platform.txt"],
+    cmd = """uname -a > $@""",
+)
+
+sh_test(
+    name = "get_platform_test",
+    srcs = ["get_platform_test.sh"],
+)
