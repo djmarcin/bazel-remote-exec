@@ -8,4 +8,7 @@ genrule(
 sh_test(
     name = "get_platform_test",
     srcs = ["get_platform_test.sh"],
+    exec_compatible_with = [
+        "@platforms//cpu:arm64",
+    ],
 )
