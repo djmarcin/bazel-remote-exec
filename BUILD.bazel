@@ -9,7 +9,22 @@ sh_test(
     name = "get_platform_test",
     srcs = ["get_platform_test.sh"],
     data = [":get_platform"],
-    exec_compatible_with = [
-        "@platforms//cpu:arm64",
-    ],
+)
+
+cc_library(
+    name = "hello_lib",
+    srcs = ["hello.cc"],
+    hdrs = ["hello.h"],
+)
+
+cc_binary(
+    name = "hello",
+    srcs = ["main.cc"],
+    deps = [":hello_lib"],
+)
+
+cc_test(
+    name = "hello_test",
+    srcs = ["hello_test.cc"],
+    deps = [":hello_lib"],
 )
