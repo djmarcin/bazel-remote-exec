@@ -14,8 +14,7 @@ build:remote_macos_x86_64 --extra_execution_platforms=//platforms:macos-x86_64
 # Build on macos-x86_64, execute on macos-arm64
 build:remote_macos_arm64 --config=remote
 build:remote_macos_arm64 --platforms=//platforms:macos-arm64
-build:remote_macos_arm64 --host_platform=//platforms:macos-x86_64
-build:remote_macos_arm64 --extra_execution_platforms=//platforms:macos-arm64
+build:remote_macos_arm64 --extra_execution_platforms=//platforms:exec-macos-arm64
 
 # Build on linux-x86_64, execute on linux-x86_64
 build:remote_linux_x86_64 --config=remote

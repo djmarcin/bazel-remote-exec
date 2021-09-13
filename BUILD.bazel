@@ -1,3 +1,5 @@
+load("@rules_rust//rust:rust.bzl", "rust_binary", "rust_library", "rust_test")
+
 genrule(
     name = "get_platform",
     srcs = [],
@@ -27,4 +29,17 @@ cc_test(
     name = "hello_test",
     srcs = ["hello_test.cc"],
     deps = [":hello_lib"],
+)
+
+rust_library(
+    name = "hello_rs",
+    srcs = ["src/main.rs"],
+)
+
+rust_test(
+    name = "hello_rs_test",
+    crate = ":hello_rs",
+    # exec_properties = {
+    #     "test.cpu": "arm64",
+    # },
 )
